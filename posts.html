@@ -1,0 +1,698 @@
+<html>
+
+<head>
+    <title>Posts</title>
+    <style>
+    @media all {
+
+        *,
+        :before,
+        :after {
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            box-sizing: content-box
+        }
+
+        div,
+        span,
+        a {
+            margin: 0;
+            padding: 0;
+            border: 0
+        }
+
+        .t-container {
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0
+        }
+
+        .t-container:before,
+        .t-container:after {
+            display: table;
+            content: " ";
+            width: 0
+        }
+
+        .t-container:after {
+            clear: both
+        }
+
+        .t-col {
+            display: inline;
+            float: left;
+            margin-left: 20px;
+            margin-right: 20px;
+            width: 100%
+        }
+
+        .t-col_9 {
+            max-width: 860px
+        }
+
+        .t-prefix_2 {
+            padding-left: 200px
+        }
+
+        .t-width {
+            width: 100%
+        }
+
+        @media screen and (max-width:1200px) {
+            .t-container {
+                max-width: 960px;
+                padding: 0
+            }
+
+            .t-col {
+                display: inline;
+                float: left;
+                margin-left: 10px;
+                margin-right: 10px;
+                width: 100%
+            }
+
+            .t-col_9 {
+                max-width: 700px
+            }
+
+            .t-prefix_2 {
+                padding-left: 160px
+            }
+        }
+
+        @media screen and (max-width:960px) {
+            .t-container {
+                max-width: 640px
+            }
+
+            .t-col {
+                display: block;
+                float: none;
+                padding-left: 20px;
+                padding-right: 20px;
+                margin: 0;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box
+            }
+
+            .t-col_9 {
+                width: 100%;
+                max-width: 100%
+            }
+
+            .t-prefix_2 {
+                padding-left: none
+            }
+        }
+
+        #allrecords a {
+            color: #666;
+            text-decoration: none;
+            outline: none
+        }
+
+        .t-records a {
+            color: #666;
+            text-decoration: none
+        }
+
+        .t-name {
+            font-family: 'Roboto', Arial, sans-serif;
+            font-weight: 700;
+            color: #666
+        }
+
+        .t-name_xl {
+            font-size: 22px;
+            line-height: 1.35
+        }
+
+        .t-descr {
+            font-family: 'Roboto', Arial, sans-serif;
+            font-weight: 300;
+            color: #666
+        }
+
+        .t-descr_xxs {
+            font-size: 12px;
+            line-height: 1.55
+        }
+
+        .t-uptitle {
+            font-family: 'Roboto', Arial, sans-serif;
+            font-weight: 700;
+            color: #666;
+            letter-spacing: 2.5px
+        }
+
+        .t-uptitle_xs {
+            font-size: 10px
+        }
+
+        .t-rec_pt_15 {
+            padding-top: 15px
+        }
+
+        .t-rec_pb_15 {
+            padding-bottom: 15px
+        }
+
+        @media screen and (max-width:1200px) {
+            .t-descr_xxs {
+                font-size: 10px
+            }
+
+            .t-name_xl {
+                font-size: 20px
+            }
+        }
+
+        @media screen and (max-width:640px) {
+            .t-uptitle_xs {
+                font-size: 8px
+            }
+
+            .t-name_xl {
+                font-size: 18px
+            }
+        }
+
+        @media screen and (max-width:480px) {
+            .t-rec_pt_15 {
+                padding-top: 15px
+            }
+
+            .t-rec_pb_15 {
+                padding-bottom: 15px
+            }
+        }
+
+        @media screen and (max-width:960px) {
+            .t896 .t-feed__row-grid__post-wrapper {
+                flex-wrap: wrap;
+                padding-bottom: 0
+            }
+
+            .t896 .t-feed__post-imgwrapper,
+            .t896 .t-feed__textwrapper {
+                padding-bottom: 25px
+            }
+        }
+
+        @media screen and (max-width:460px) {
+            .t896 .t-feed__row-grid__post-wrapper {
+                flex-wrap: nowrap;
+                padding-bottom: 25px
+            }
+
+            .t896 .t-feed__post-imgwrapper,
+            .t896 .t-feed__textwrapper {
+                padding-bottom: 0
+            }
+
+            .t896 .t-feed__row-grid__post-wrapper .t-feed__post-bgimg {
+                margin-bottom: 20px
+            }
+        }
+
+        .t-feed__row-grid__post-wrapper {
+            position: relative;
+            display: -ms-flex;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            padding-top: 25px;
+            padding-bottom: 25px
+        }
+
+        .t-feed_row .t-feed__container {
+            display: -ms-flex;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            flex-direction: column
+        }
+
+        .t-feed__post__line-separator {
+            width: 100%;
+            height: 1px;
+            background-color: rgba(0, 0, 0, .15)
+        }
+
+        .t-feed__post:first-child .t-feed__post__line-separator {
+            display: none
+        }
+
+        .t-feed__post-imgwrapper {
+            position: relative;
+            overflow: hidden
+        }
+
+        .t-feed__post-bgimg {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            -webkit-transition: -webkit-transform .4s ease;
+            transition: -webkit-transform .4s ease;
+            -o-transition: transform .4s ease;
+            transition: transform .4s ease;
+            transition: transform .4s ease, -webkit-transform .4s ease
+        }
+
+        .t-feed__row-grid__post-wrapper .t-feed__post-bgimg {
+            width: 190px;
+            height: 150px;
+            margin-right: 40px
+        }
+
+        .t-feed__row-grid__post-wrapper .t-feed__textwrapper {
+            -webkit-box-flex: 1;
+            -ms-flex: 1 1 0;
+            flex: 1 1 0
+        }
+
+        .t-feed__post-descr,
+        .t-feed__post-title {
+            overflow: hidden;
+            text-overflow: ellipsis
+        }
+
+        .t-feed__post-descr {
+            margin-top: 8px;
+            color: rgba(0, 0, 0, .9)
+        }
+
+        .t-feed__post-parts-date-row {
+            font-size: 0
+        }
+
+        .t-feed__post-parts-date-row_afterdescr {
+            margin-top: 15px
+        }
+
+        .t-feed__post-date {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 15px;
+            font-size: 10px;
+            letter-spacing: 1px;
+            color: rgba(0, 0, 0, .5)
+        }
+
+        @media screen and (max-width:960px) {
+            .t-feed__post-bgimg:hover {
+                -webkit-transform: scale(1);
+                -ms-transform: scale(1);
+                transform: scale(1)
+            }
+        }
+
+        @media screen and (max-width:640px) {
+            .t-feed__row-grid__post-wrapper .t-feed__post-bgimg {
+                margin-right: 20px
+            }
+        }
+
+        @media screen and (max-width:460px) {
+            .t-feed__row-grid__post-wrapper .t-feed__post-bgimg {
+                width: 100% !important;
+                height: auto !important;
+                margin-right: 0;
+                margin-bottom: 20px;
+                padding-bottom: 60%
+            }
+
+            .t-feed__row-grid__post-wrapper {
+                -ms-flex-direction: column;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                flex-direction: column
+            }
+        }
+
+        @media screen and (max-width:960px) {
+            .t-feed__row-grid__post-wrapper .t-feed__post-bgimg {
+                margin-right: 30px
+            }
+        }
+
+        *,
+        :before,
+        :after {
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            box-sizing: content-box
+        }
+
+        div {
+            margin: 0;
+            padding: 0;
+            border: 0
+        }
+
+        .t-name {
+            font-family: 'Roboto', Arial, sans-serif;
+            font-weight: 700;
+            color: #666
+        }
+
+        .t-name_xl {
+            font-size: 22px;
+            line-height: 1.35
+        }
+
+        @media screen and (max-width:1200px) {
+            .t-name_xl {
+                font-size: 20px
+            }
+        }
+
+        @media screen and (max-width:640px) {
+            .t-name_xl {
+                font-size: 18px
+            }
+        }
+
+        .t-feed__post-title {
+            overflow: hidden;
+            text-overflow: ellipsis
+        }
+
+        *,
+        :before,
+        :after {
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            box-sizing: content-box
+        }
+
+        div {
+            margin: 0;
+            padding: 0;
+            border: 0
+        }
+
+        .t-descr {
+            font-family: 'Roboto', Arial, sans-serif;
+            font-weight: 300;
+            color: #666
+        }
+
+        .t-descr_xxs {
+            font-size: 12px;
+            line-height: 1.55
+        }
+
+        @media screen and (max-width:1200px) {
+            .t-descr_xxs {
+                font-size: 10px
+            }
+        }
+
+        .t-feed__post-descr {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-top: 8px;
+            color: rgba(0, 0, 0, .9)
+        }
+
+        *,
+        :before,
+        :after {
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            box-sizing: content-box
+        }
+
+        span {
+            margin: 0;
+            padding: 0;
+            border: 0
+        }
+
+        .t-uptitle {
+            font-family: 'Roboto', Arial, sans-serif;
+            font-weight: 700;
+            color: #666;
+            letter-spacing: 2.5px
+        }
+
+        .t-uptitle_xs {
+            font-size: 10px
+        }
+
+        @media screen and (max-width:640px) {
+            .t-uptitle_xs {
+                font-size: 8px
+            }
+        }
+
+        .t-feed__post-date {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 15px;
+            font-size: 10px;
+            letter-spacing: 1px;
+            color: rgba(0, 0, 0, .5)
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div id="rec600475520" class="r t-rec t-rec_pt_15 t-rec_pb_15" style="padding-top:15px;padding-bottom:15px; " data-animationappear="off" data-record-type="896" data-preloader-timeout="70">
+        <!-- t896 -->
+        <!-- @classes t-descr t-btn t-descr_xxs t-descr_sm t-title t-title_xxs t-text t-text_md t-heading t-heading_lg t-name t-uptitle t-uptitle_sm t-uptitle_xs t-name_md data-zoomable="yes" t-btn_md -->
+        <div class="t896">
+            <!-- grid container start -->
+            <div class="js-feed t-feed t-feed_row" data-feed-grid-type="row" data-feed-recid="600475520" data-feed-uid="331202698991">
+                <div class="t-feed__container t-container">
+                    <div class="js-feed-parts-select-container t-col t-col_9 t-prefix_2"></div>
+                </div><!-- preloader els -->
+                <!-- preloader els end -->
+                <div class="js-feed-container t-feed__container t-container" data-feed-show-slice="1" data-slider-totalslides="3">
+                    <div class="js-feed-post t-feed__post t-item t-width t-col t-col_9 t-prefix_2" data-post-uid="jz68ni0i01">
+                        <div class="t-feed__post__line-separator"></div><a href="http://event.scanndi.com/tpost/jz68ni0i01-kurtki-scanndi-byut-rekordi" class="js-feed-post-link">
+                            <div class="t-feed__row-grid__post-wrapper">
+                                <div class="t-feed__post-imgwrapper">
+                                    <div class="js-feed-post-image t-feed__post-bgimg t-bgimg loaded" data-original="https://static.tildacdn.com/tild6630-3063-4630-b965-323261363265/IMG_20230322_0933205.jpg" style="background-image: url(&quot;https://thumb.tildacdn.com/tild6630-3063-4630-b965-323261363265/-/cover/640x340/center/center/-/format/webp/IMG_20230322_0933205.jpg&quot;); width: 320px; height: 170px;" bgimgfield="fe_img__jz68ni0i01"></div>
+                                </div>
+                                <div class="t-feed__textwrapper">
+                                    <div class="js-feed-post-title t-feed__post-title  t-name t-name_xl" field="fe_title__jz68ni0i01" data-redactor-toolbar="no" style="">КУРТКИ SCANNDI БЬЮТ РЕКОРДЫ!</div>
+                                    <div class="js-feed-post-descr t-feed__post-descr t-descr t-descr_xxs" field="fe_descr__jz68ni0i01" data-redactor-toolbar="no" style="">Куртки SCANNDI FINLAND согреваютучастников экспедиции по трансконтинентальному перелету воздушного шара под управлением Фёдора Конюхова и Ивана Меняйло</div>
+                                    <div class="t-feed__post-parts-date-row t-feed__post-parts-date-row_afterdescr"><span class="js-feed-post-date t-feed__post-date t-uptitle t-uptitle_xs" style="">05.06.2023</span></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="js-feed-post t-feed__post t-item t-width t-col t-col_9 t-prefix_2" data-post-uid="49l3k39vs1">
+                        <div class="t-feed__post__line-separator"></div><a href="http://event.scanndi.com/tpost/49l3k39vs1-title-of-the-second-sample-post" class="js-feed-post-link">
+                            <div class="t-feed__row-grid__post-wrapper">
+                                <div class="t-feed__post-imgwrapper">
+                                    <div class="js-feed-post-image t-feed__post-bgimg t-bgimg loaded" data-original="https://static.tildacdn.com/tild3032-6664-4866-a636-373837643665/WhatsApp_Image_2023-.jpeg" style="background-image: url(&quot;https://thumb.tildacdn.com/tild3032-6664-4866-a636-373837643665/-/cover/640x340/center/center/-/format/webp/WhatsApp_Image_2023-.jpeg&quot;); width: 320px; height: 170px;" bgimgfield="fe_img__49l3k39vs1"></div>
+                                </div>
+                                <div class="t-feed__textwrapper">
+                                    <div class="js-feed-post-title t-feed__post-title  t-name t-name_xl" field="fe_title__49l3k39vs1" data-redactor-toolbar="no" style="">Title of the second sample post</div>
+                                    <div class="js-feed-post-descr t-feed__post-descr t-descr t-descr_xxs" field="fe_descr__49l3k39vs1" data-redactor-toolbar="no" style="">This is a field to be filled it with a description right under the headline. Use a short text to expand the&nbsp;meaning of your title</div>
+                                    <div class="t-feed__post-parts-date-row t-feed__post-parts-date-row_afterdescr"><span class="js-feed-post-date t-feed__post-date t-uptitle t-uptitle_xs" style="">05.06.2023</span></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="js-feed-post t-feed__post t-item t-width t-col t-col_9 t-prefix_2" data-post-uid="eme6um7y81">
+                        <div class="t-feed__post__line-separator"></div><a href="http://event.scanndi.com/tpost/eme6um7y81-the-third-title-for-the-post" class="js-feed-post-link">
+                            <div class="t-feed__row-grid__post-wrapper">
+                                <div class="t-feed__post-imgwrapper">
+                                    <div class="js-feed-post-image t-feed__post-bgimg t-bgimg loaded" data-original="https://static.tildacdn.com/tild3932-3264-4037-b138-313331323862/WhatsApp_Image_2023-.jpeg" style="background-image: url(&quot;https://thumb.tildacdn.com/tild3932-3264-4037-b138-313331323862/-/cover/640x340/center/center/-/format/webp/WhatsApp_Image_2023-.jpeg&quot;); width: 320px; height: 170px;" bgimgfield="fe_img__eme6um7y81"></div>
+                                </div>
+                                <div class="t-feed__textwrapper">
+                                    <div class="js-feed-post-title t-feed__post-title  t-name t-name_xl" field="fe_title__eme6um7y81" data-redactor-toolbar="no" style="">The third title for the post</div>
+                                    <div class="js-feed-post-descr t-feed__post-descr t-descr t-descr_xxs" field="fe_descr__eme6um7y81" data-redactor-toolbar="no" style="">Fill in description field and start your stories. This text will be shown as a description in a blog card in the newsfeed</div>
+                                    <div class="t-feed__post-parts-date-row t-feed__post-parts-date-row_afterdescr"><span class="js-feed-post-date t-feed__post-date t-uptitle t-uptitle_xs" style="">05.06.2023</span></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div><!-- grid container end -->
+        </div>
+        <style>
+        /* Feed part switch buttons styles */
+        #rec600475520 .t-feed__parts-switch-btn {
+            font-weight: 400;
+            border: 1px solid #000000;
+            border-radius: 40px;
+        }
+
+        #rec600475520 .t-feed__parts-switch-btn span,
+        #rec600475520 .t-feed__parts-switch-btn a {
+            color: #000000;
+            padding: 6px 18px 6px;
+        }
+
+        #rec600475520 .t-feed__parts-switch-btn.t-active {
+            background-color: #000000;
+        }
+
+        #rec600475520 .t-feed__parts-switch-btn.t-active span,
+        #rec600475520 .t-feed__parts-switch-btn.t-active a {
+            color: #ffffff !important;
+        }
+        </style>
+        <style type="text/css">
+        #rec600475520 .t-feed__post-popup__cover-wrapper .t-slds__bullet_active .t-slds__bullet_body,
+        #rec600475520 .t-feed__post-popup__cover-wrapper .t-slds__bullet:hover .t-slds__bullet_body {
+            background-color: #222 !important;
+        }
+        </style><!-- news setup start -->
+        <script>
+        t_onReady(function() {
+            var typography_optsObj = {
+                title: "",
+                descr: "",
+                subtitle: ""
+            };
+            var separator_optsObj = {
+                height: '',
+                color: '',
+                opacity: '',
+                hideSeparator: false
+            };
+            var popup_optsObj = {
+                popupBgColor: '#ffffff',
+                overlayBgColorRgba: 'rgba(255,255,255,1)',
+                closeText: '',
+                iconColor: '#000000',
+                popupStat: '',
+                titleColor: '',
+                textColor: '',
+                subtitleColor: '',
+                datePos: 'aftertext',
+                partsPos: 'aftertext',
+                imagePos: 'aftertitle',
+                inTwoColumns: false,
+                zoom: true,
+                styleRelevants: '',
+                methodRelevants: 'random',
+                titleRelevants: '',
+                showRelevants: '',
+                shareStyle: '',
+                shareBg: '',
+                isShare: false,
+                shareServices: '',
+                shareFBToken: '',
+                showDate: true,
+                bgSize: 'contain'
+            };
+            var arrowtop_optsObj = {
+                isShow: false,
+                style: '',
+                color: '',
+                bottom: '',
+                left: '',
+                right: ''
+            };
+            var parts_optsObj = {
+                partsBgColor: '',
+                partsBorderSize: '1px',
+                partsBorderColor: '#000000',
+                align: 'center'
+            };
+            var gallery_optsObj = {
+                control: '',
+                arrowSize: '',
+                arrowBorderSize: '',
+                arrowColor: '',
+                arrowColorHover: '',
+                arrowBg: '',
+                arrowBgHover: '',
+                arrowBgOpacity: '',
+                arrowBgOpacityHover: '',
+                showBorder: '',
+                dotsWidth: '',
+                dotsBg: '',
+                dotsActiveBg: '',
+                dotsBorderSize: ''
+            };
+            var btnAllPosts_optsObj = {
+                text: '',
+                link: '',
+                target: ''
+            };
+            var colWithBg_optsObj = {
+                paddingSize: '',
+                background: '',
+                borderRadius: '',
+                shadowSize: '',
+                shadowOpacity: '',
+                shadowSizeHover: '',
+                shadowOpacityHover: '',
+                shadowShiftyHover: ''
+            };
+            var options = {
+                feeduid: '331202698991',
+                previewmode: 'yes',
+                align: '',
+                amountOfPosts: '',
+                reverse: 'desc',
+                blocksInRow: '',
+                blocksClass: '',
+                blocksWidth: '',
+                colClass: '9',
+                prefixClass: '2',
+                vindent: '',
+                dateFormat: '4',
+                timeFormat: '',
+                imageRatio: '75',
+                hasOriginalAspectRatio: false,
+                imageHeight: '170px',
+                imageWidth: '320px',
+                dateFilter: 'all',
+                showPartAll: true,
+                showImage: true,
+                showShortDescr: true,
+                showParts: true,
+                showDate: true,
+                hideFeedParts: false,
+                parts_opts: parts_optsObj,
+                btnsAlign: false,
+                colWithBg: colWithBg_optsObj,
+                separator: separator_optsObj,
+                btnAllPosts: btnAllPosts_optsObj,
+                popup_opts: popup_optsObj,
+                arrowtop_opts: arrowtop_optsObj,
+                gallery: gallery_optsObj,
+                typo: typography_optsObj,
+                amountOfSymbols: '',
+                bbtnStyle: 'color:#ffffff;background-color:#000000;border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px;',
+                btnStyle: '',
+                btnTextColor: '',
+                btnType: '',
+                btnSize: '',
+                btnText: '',
+                btnReadMore: '',
+                isHorizOnMob: false,
+                itemsAnim: '',
+                datePosPs: 'afterdescr',
+                partsPosPs: 'afterdescr',
+                imagePosPs: 'beforetitle',
+                datePos: 'beforetitle',
+                partsPos: 'beforetitle',
+                imagePos: 'beforetitle'
+            };
+            t_onFuncLoad('t_feed_init', function() {
+                t_feed_init('600475520', options);
+            });
+        });
+        </script><!-- news setup end -->
+    </div>
+</body>
+
+</html>
